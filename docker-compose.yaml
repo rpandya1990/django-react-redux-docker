@@ -1,0 +1,92 @@
+version: '2'
+
+services:
+# ############################################################################
+# Core Django
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - /Users/raghavpandya/press-data/pgdata:/var/lib/postgresql/data
+    ports:
+     - "5432:5432"
+    restart: unless-stopped
+
+  db_ui:
+    image: fenglc/pgadmin4:2.1
+    environment:
+      DEFAULT_USER: postgres
+      DEFAULT_PASSWORD: password
+    volumes:
+      - /Users/raghavpandya/press-data/pgadmin:/var/lib/pgadmin
+    ports:
+     - "5050:5050"
+  web: &web
+    build:
+      context:  . # root of project
+      dockerfile: ./docker/web/Dockerfile
+    command: uwsgi --ini uwsgi.ini
+    depends_on:
+      - db
+      - db_ui
+      - db_migration
+      - backend_log_browser
+    ports:
+     - "80:80"
+    restart: unless-stopped
+
+  dev_box:
+    build:
+      context:  . # root of project
+      dockerfile: ./docker/dev/Dockerfile
+      args:
+        USER_DEV_NAME: ${USER_DEV_NAME}
+        USER_DEV_UID: ${USER_DEV_UID}
+        USER_DEV_GUID: ${USER_DEV_GUID}
+    command: /bin/service.sh
+    hostname: dev_box
+    environment:
+      - DOCKER_HOST=tcp://0.0.0.0:2376
+      - COMPOSE_PROJECT_NAME=devbox
+    volumes:
+      - ${HOME}/:/home/${USER_DEV_NAME}
+      - /Users/raghavpandya/press-data:/home/raghavpandya/press-data
+    network_mode: host
+    privileged: true
+    extra_hosts:
+      - dev_box:127.0.0.1
+      - db:127.0.0.1
+    working_dir: ${PWD}
+
+  dev_web_debug:
+    <<: *web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/src
+    ports:
+      - "8000:8000"
+
+  dev_customize_deployment:
+    image: ${COMPOSE_PROJECT_NAME}_web
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: password
+    command:  bin/dev_deploy.py --customize_deployment
+    volumes:
+      - /Users/raghavpandya/press-data:/Users/raghavpandya/press-data
+    depends_on:
+      - db
+
+  db_migration:
+    image: ${COMPOSE_PROJECT_NAME}_web
+    command: python manage.py migrate
+    depends_on:
+      - db
+  backend_log_browser:
+    build: ./docker/httpd
+    volumes:
+      - /Users/raghavpandya/press-data/joblogs/archive:/usr/local/apache2/htdocs/Users/raghavpandya/press-data/joblogs/archive
+    ports:
+      - "8080:8080"
