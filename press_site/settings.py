@@ -9,7 +9,7 @@ from social_core.pipeline import DEFAULT_AUTH_PIPELINE
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ############################################################################
-ATLANTIS_PRODUCTION_SERVER = int(os.environ.get('ATLANTIS_PRODUCTION_SERVER', '0'))
+PRESS_PRODUCTION_SERVER = int(os.environ.get('PRESS_PRODUCTION_SERVER', '0'))
 
 # Logging and Debugging
 LOG_BASE_PATH = "/mnt/data/joblogs"
@@ -31,7 +31,7 @@ LOGGING = {
             'version': 1,
             'message_type': 'logstash',
             'fqdn': True,
-            'tags': ['atlantis-production' if os.getenv('ATLANTIS_PRODUCTION_SERVER', '') == '1' else 'atlantis-dev'],
+            'tags': ['press-production' if os.getenv('PRESS_PRODUCTION_SERVER', '') == '1' else 'press-dev'],
         },
         'file': {
             'level': 'DEBUG',
@@ -199,7 +199,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<ReplaceWithDevInstanceKeyInCustomSettings>'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<ReplaceWithDevInstanceKeyInCustomSettings>'
 SOCIAL_AUTH_PIPELINE = list(DEFAULT_AUTH_PIPELINE) + [
-    'atlantis_site.pipeline.save_to_group'
+    'press_site.pipeline.save_to_group'
 ]
 
 LOGIN_URL = 'login'

@@ -1,5 +1,5 @@
 """
-WSGI config for atlantis project.
+WSGI config for project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,9 +12,9 @@ from django.core.wsgi import get_wsgi_application
 
 from press_site.settings import BASE_DIR
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "atlantis_site.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "press_site.settings")
 
-if os.environ.get('ATLANTIS_PRODUCTION_SERVER', '') == '1':
+if os.environ.get('PRESS_PRODUCTION_SERVER', '') == '1':
     import newrelic.agent
 
     newrelic.agent.initialize(os.path.abspath('{}/newrelic.ini'.format(BASE_DIR)))

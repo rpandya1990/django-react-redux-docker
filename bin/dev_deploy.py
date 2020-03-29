@@ -53,7 +53,7 @@ def deploy_prod_clone(db_path, reset=False, refresh=False):
 
 
 if __name__ == '__main__':
-    rc, _ = commands.getstatusoutput("grep 'ATLANTIS_PRODUCTION_SERVER' .env | grep 1")
+    rc, _ = commands.getstatusoutput("grep 'PRESS_PRODUCTION_SERVER' .env | grep 1")
     if rc == 0:
         print("Please do not run dev_deploy.py on production server")
         sys.exit(1)
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     parser.add_argument('--customize_deployment', action='store_true',
                         help="Additional steps to customize a deployment")
     parser.add_argument('--prod_db_path', type=str,
-                        default="/net/10.0.124.2/mnt/press-data/atlantis-backup/pgdata",
+                        default="/net/10.0.124.2/mnt/press-data/backup/pgdata",
                         help="use a local prod clone copy")
 
     args = parser.parse_args()
