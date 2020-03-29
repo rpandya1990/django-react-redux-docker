@@ -25,9 +25,9 @@ from press_site.api import router
 from tara.appAdmin import appAdminSite as tara_site
 from tara.views import IndexPage
 
-admin.site.site_header = "Atlantis"
-admin.site.site_title = "Destiny"
-admin.site.index_title = "Atlantis"
+admin.site.site_header = "Press-Website"
+admin.site.site_title = "Tara"
+admin.site.index_title = "Press-Website"
 tara_site.site_header = admin.site.site_header
 tara_site.site_title = admin.site.site_title
 tara_site.index_title = admin.site.index_title

@@ -132,7 +132,6 @@ class TopNav extends Component {
             <div className="navbar">
                 <div className="side-nav">
                     <Link to="/" className="logo-block">
-                        <img className="logo" src="/static/images/logo.svg" alt="rubrik_white_logo"/>
                         {/*<span className="nav-item-label">Atlantis</span>*/}
                     </Link>
                     <div style={{marginTop: "50px", overflowY: "auto", position: "relative", height: "100%"}}>

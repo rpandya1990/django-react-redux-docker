@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 AUTH_USER_MODEL = get_user_model()
 
 
-class BaseDestinyModel(models.Model):
+class BaseModel(models.Model):
     """Base Class for all model.
 
     Layout

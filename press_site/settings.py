@@ -262,24 +262,16 @@ JET_SIDE_MENU_COMPACT = True
 JET_SIDE_MENU_ITEMS = {
     'admin': [
         {
-            'label': 'Test Management',
-            'app_label': 'destiny',
-            'items': [
-                {'name': 'testcase'},
-                {'name': 'testsuite'},
-                {'name': 'testtag'},
-            ]
+            'label': 'Items',
+            'app_label': 'tara',
+            'items': []
         }
     ],
     'appAdmin': [
         {
-            'label': 'Test Management',
-            'app_label': 'destiny',
-            'items': [
-                {'name': 'testcase'},
-                {'name': 'testsuite'},
-                {'name': 'testtag'},
-            ]
+            'label': 'Items',
+            'app_label': 'tara',
+            'items': []
         }
     ]
 }

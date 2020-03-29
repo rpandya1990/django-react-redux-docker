@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import {
-    DESTINY_APP_LIST
+    TARA_APP_LIST
 } from "../api/endpoints";
 
 import {
@@ -11,7 +11,7 @@ import {
 
 export const getAppList = () => dispatch => {
     axios
-        .get(DESTINY_APP_LIST)
+        .get(TARA_APP_LIST)
         .then(res => {
             dispatch({
                 type: GET_APP_LIST,
