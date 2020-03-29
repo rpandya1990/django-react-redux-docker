@@ -104,7 +104,7 @@ class BaseAdmin(admin.ModelAdmin):
 # get auto generated
 # bulk model to admin page registration
 current_module = sys.modules[__name__]
-current_app = apps.get_app_config('destiny')
+current_app = apps.get_app_config('tara')
 for model_name, model in current_app.models.items():
     try:
         admin.site.register(model, getattr(current_module, "{}Admin".format(model.__name__)))

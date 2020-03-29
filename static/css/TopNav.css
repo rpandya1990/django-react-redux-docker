@@ -1,0 +1,199 @@
+.navbar {
+    position: fixed;
+    width: 210px;
+    height: 100%;
+    padding: 0;
+    background-color: rgb(36,25,36);
+    z-index: 8;
+    transition: .5s transform;
+    transform: translateX(-140px);
+}
+
+.side-nav {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: #f1f1f5;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+    font-size: 15px;
+    margin-left: 140px;
+}
+
+.nav-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    animation: 1.5s fade-in;
+    margin: 0px 2px;
+    color: rgb(160, 215, 255);
+}
+
+.nav-item:hover {
+    opacity: .92;
+    background-color: rgba(45, 45, 55, 1);
+    color: white;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Source Sans Pro", "Raleway", sans-serif;
+}
+
+.loader {
+    border: 10px solid #c8c8c8;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s ease-in-out infinite; /* Safari */
+    animation: spin 2s ease-in-out infinite;
+}
+
+
+.small-loader {
+    border: 6px solid #c8c8c8;
+    border-radius: 50%;
+    border-top: 6px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s ease-in-out infinite;
+    animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Style the links inside the navigation bar */
+.tooltip-nav-items {
+    font-size: 13px;
+    display: block;
+    margin-left: 5px;
+    color: white;
+    padding: 3px 0px;
+    animation: 0.4s linear slide-and-fade-in-top;
+}
+
+
+
+/* Change the color of links on hover */
+.nav-dropdown a:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 3px;
+}
+
+/* Add a color to the active/current link */
+.nav-dropdown a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*logo*/
+.brand-logo {
+    margin-left: 2px;
+    color: #00ffff;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    color: #f3f3f8;
+}
+
+.logo-block:hover {
+    text-decoration: none;
+    opacity: .92;
+    color: #f3f3f8;
+}
+
+.logo {
+    width: 37px;
+    margin: 12px 0px 10px 0px;
+}
+
+.profile-icon {
+    cursor: pointer;
+    user-select: none;
+    border: 3px solid white;
+    color: rgb(150, 205, 255);
+    border-radius: 50%;
+    transition: 0.3s transform;
+    font-weight: 500;
+    font-size: 19px;
+    font-family: "Montserrat", sans-serif;
+    width: 45px;
+    height: 42px;
+    margin: 5px 0px;
+}
+
+.profile-icon:hover {
+    transform: scale(1.2);
+}
+
+.upper-triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    margin-left: 3px;
+    position: relative;
+    z-index: 4;
+}
+
+.nav-dropdown {
+    background-color: white;
+    display: flex;
+    flex-flow: wrap;
+    position: absolute;
+    box-sizing: content-box;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 8px;
+    top: 9px;
+}
+
+.drop.arrow {
+    transform: rotate(90deg);
+    transition: 0.5s transform;
+}
+
+.arrow {
+    margin: -2px;
+}
+
+.settings a {
+    align-items: flex-start;
+    padding: 10px 20px 10px 10px;
+}
+
+.nav-dropdown span {
+    font-size: 13px;
+}
+
+.nav-icons:hover {
+    background-color: rgb(242, 242, 242);
+    text-decoration: none;
+    color: black;
+}
+
+.tooltip-nav-items:hover {
+    color: white;
+}
+
+.nav-dropdown-block {
+    animation: 0.4s linear slide-and-fade-in-top;
+    transform: translate(4px, 2px);
+}

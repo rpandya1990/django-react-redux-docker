@@ -1,0 +1,65 @@
+.table-responsive > .table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table {
+    width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table thead {
+    background-color: white;
+}
+
+.table thead,
+tbody {
+    display: block;
+}
+
+.table tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 101%;
+}
+
+.table th {
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td,
+th {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.build-stats > div {
+    padding: 5px 10px;
+}
+
+.manager-cell:hover {
+    background-color: rgba(0, 0, 0, .05);
+    cursor: pointer;
+}
+
+.build-stats-even-row {
+    display: flex;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.build-stats-odd-row {
+    display: flex;
+    padding: 4px;
+    background-color: white;
+}
+
+.bold-and-left-align {
+    font-weight: 600;
+    margin-left: 30px
+}

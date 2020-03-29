@@ -1,0 +1,44 @@
+.suite-row > th, .header-suite-row > th {
+    padding: 5px 5px 15px 5px;
+    font-size: 11px;
+    color: rgb(140,140,143);
+    font-family: "Roboto";
+}
+
+.suite-row > td {
+    color: rgb(60,62,65);
+    font-size: 12px;
+    padding: 2px;
+    vertical-align: middle;
+    font-family: "Roboto";
+}
+
+.suite-row:hover > td {
+    background-color: rgb(220,230,240);
+}
+
+.suite-row {
+    cursor: pointer;
+    animation: .5s left-slide-and-fade-in;
+}
+
+.nested-table-container {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+    background: white;
+    margin: 0px 20px;
+    overflow: auto;
+}
+
+@media only screen and (min-width: 1900px) {
+    .suite-row > td {
+        font-size: 14px;
+    }
+}
+
+.suite-actions {
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    color: rgb(50,120,180);
+}

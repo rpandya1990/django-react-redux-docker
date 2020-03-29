@@ -1,0 +1,32 @@
+.loader {
+    border: 5px solid #c8c8c8;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s ease-in-out infinite; /* Safari */
+    animation: spin 2s ease-in-out infinite;
+    vertical-align: middle;
+}
+
+.medium-loader {
+    border: 4px solid #c8c8c8;
+    border-radius: 50%;
+    border-top: 4px solid #3498db;
+    width: 75px;
+    height: 75px;
+    -webkit-animation: spin 2s ease-in-out infinite;
+    animation: spin 2s ease-in-out infinite;
+    vertical-align: middle;
+}
+
+.small-loader {
+    border: 3px solid #c8c8c8;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s ease-in-out infinite;
+    animation: spin 2s ease-in-out infinite;
+    vertical-align: middle;
+}

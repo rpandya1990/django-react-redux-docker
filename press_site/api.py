@@ -11,8 +11,7 @@ router = routers.DefaultRouter()
 
 # Add api where all the fields are exposed
 for api_views in [get_tara_api_views_with_all_fields_readonly,
-                  get_tara_api_views_with_all_fields_create_retrieve,
-                  get_productivity_api_views_with_all_fields_readonly]:
+                  get_tara_api_views_with_all_fields_create_retrieve]:
     for v in api_views():
         url = "{}/{}".format(
             v.queryset.query.model.__module__.lower().split('.models')[0],

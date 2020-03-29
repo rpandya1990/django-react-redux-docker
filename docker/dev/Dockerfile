@@ -33,7 +33,7 @@ ARG USER_DEV_GUID
 RUN useradd -d /home/$USER_DEV_NAME -m $USER_DEV_NAME
 RUN usermod -u $USER_DEV_UID -U $USER_DEV_NAME
 RUN usermod -aG sudo $USER_DEV_NAME
-#RUN groupmod -g $USER_DEV_GUID $USER_DEV_NAME
+RUN groupmod -g $USER_DEV_GUID $USER_DEV_NAME
 RUN echo $USER_DEV_NAME:$USER_DEV_NAME | chpasswd
 RUN usermod -aG docker $USER_DEV_NAME
 RUN echo "$USER_DEV_NAME ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers

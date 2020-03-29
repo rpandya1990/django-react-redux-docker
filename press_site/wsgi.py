@@ -10,7 +10,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from atlantis_site.settings import BASE_DIR
+from press_site.settings import BASE_DIR
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "atlantis_site.settings")
 
