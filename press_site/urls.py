@@ -23,7 +23,8 @@ from rest_framework.schemas import get_schema_view
 
 from press_site.api import router
 from tara.appAdmin import appAdminSite as tara_site
-from tara.views import IndexPage
+from tara.views import (IndexPage,
+                        GetAppList)
 
 admin.site.site_header = "Press-Website"
 admin.site.site_title = "Tara"
@@ -45,5 +46,6 @@ urlpatterns = [
                   url(r'^jet/', include('jet.urls', 'jet')),
 
                   url(r'^admin/', admin.site.urls),
-                  url(r'^.*', IndexPage.as_view(), name="frontend")
+                  url(r'^.*', IndexPage.as_view(), name="frontend"),
+                  url(r'^api/tara/get_app_list', GetAppList.as_view(), name="get_app_list"),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

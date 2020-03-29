@@ -50,3 +50,11 @@ class BaseModel(models.Model):
     @staticmethod
     def get_str_repr(attributes, separator=':'):
         return "{}".format(separator).join(["{}".format(i) for i in attributes])
+
+
+class AppList(BaseModel):
+    category = models.CharField(max_length=100, default="main")
+    name = models.CharField(max_length=12)
+    link = models.CharField(max_length=1024)
+    icon_name = models.CharField(max_length=100)
+    custom_icon_link = models.CharField(max_length=1024, blank=True, null=True)
