@@ -4,6 +4,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import TopNav from "./bones/TopNav";
 import {extractGetParams} from "../../utils";
 import {SnackbarProvider} from "notistack";
+import App from "../App"
 
 import "../../css/Base.css";
 
@@ -29,7 +30,7 @@ class Skeleton extends Component {
                     horizontal: 'right',
                 }}>
                 <Fragment>
-                    <Route path="*" render={(props) => <TopNav pathname={props.history.location.pathname}/>}/>
+                    <Route path="/home" render={(props) => <App/>}/>
                 </Fragment>
             </SnackbarProvider>
         )

@@ -58,3 +58,8 @@ class AppList(BaseModel):
     link = models.CharField(max_length=1024)
     icon_name = models.CharField(max_length=100)
     custom_icon_link = models.CharField(max_length=1024, blank=True, null=True)
+
+
+class Item(BaseModel):
+    name = models.CharField(max_length=12)
+    link = models.CharField(max_length=1024)

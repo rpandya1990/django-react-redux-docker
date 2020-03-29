@@ -37,7 +37,7 @@ urlpatterns = [
                   url(r'', tara_site.urls),
                   url(r'^login', RedirectView.as_view(url='/', permanent=False), name='login'),
                   url(r'^logout', logout, {"next_page": "/login/"}, name='logout'),
-
+                  url(r'^api/tara/get_app_list', GetAppList.as_view(), name="get_app_list"),
                   url(r'^oauth/', include('social_django.urls', namespace='social')),
                   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
                   url(r'^api-schema/', get_schema_view('Supported API')),
@@ -46,6 +46,5 @@ urlpatterns = [
                   url(r'^jet/', include('jet.urls', 'jet')),
 
                   url(r'^admin/', admin.site.urls),
-                  url(r'^.*', IndexPage.as_view(), name="frontend"),
-                  url(r'^api/tara/get_app_list', GetAppList.as_view(), name="get_app_list"),
+                  url(r'^.*', IndexPage.as_view(), name="frontend")
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

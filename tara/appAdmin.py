@@ -18,6 +18,16 @@ from django.utils.module_loading import autodiscover_modules
 from django.views.decorators.cache import never_cache
 
 from tara import admin as adminView
+from tara.models import AppList, Item
+
+
+class AppListAdmin(adminView.BaseAdmin):
+    list_display = [
+        field.name for field in AppList._meta.get_fields()]
+
+
+class ItemAdmin(adminView.ItemAdmin):
+    pass
 
 
 # Registration to AppAdmin
@@ -51,3 +61,4 @@ for model_name, model in current_app.models.items():
         )
     except AttributeError:
         pass
+

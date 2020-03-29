@@ -100,6 +100,17 @@ class BaseAdmin(admin.ModelAdmin):
     list_per_page = 30
 
 
+class ItemAdmin(BaseAdmin):
+    list_display = [
+        'name',
+        'link'
+    ]
+    search_fields = [
+        'name',
+        'link'
+    ]
+
+
 # This should always be the last section otherwise code admin pages will not
 # get auto generated
 # bulk model to admin page registration
